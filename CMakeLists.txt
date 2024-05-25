@@ -8,7 +8,7 @@ add_subdirectory(external/md4c)
 add_executable(my_md4c_app main.c)
 
 # Link MD4C library to your executable
-target_link_libraries(my_md4c_app md4c)
+target_link_libraries(my_md4c_app md4c-html)
 
 # Include the MD4C headers
 target_include_directories(my_md4c_app PRIVATE external/md4c/src)
