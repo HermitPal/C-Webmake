@@ -59,10 +59,21 @@ void convert_markdown_to_html(const char *input_path, const char *output_path)
         return;
     }
 
+    fprintf(output_file, "<!DOCTYPE html>\n");
+    fprintf(output_file, "<html>\n");
+    fprintf(output_file, "<head>\n");
+    fprintf(output_file, "<meta charset=\"UTF-8\">\n");
+    fprintf(output_file, "<title>%s</title>\n", input_path);
+    fprintf(output_file, "</head>\n");
+    fprintf(output_file, "<body>\n");
+
     if (md_html(input_buffer, (MD_SIZE)input_size, my_process_output, output_file, MD_FLAG_COLLAPSEWHITESPACE, 0) != 0)
     {
         fprintf(stderr, "Failed to parse markdown file %s\n", input_path);
     }
+
+    fprintf(output_file, "</body>\n");
+    fprintf(output_file, "</html>\n");
 
     fclose(output_file);
     free(input_buffer);

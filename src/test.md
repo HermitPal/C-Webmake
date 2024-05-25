@@ -7,4 +7,4 @@
 
 # Link
 
-[link to other page](test2.md.html) 
+[link to other page](test2.html) 
